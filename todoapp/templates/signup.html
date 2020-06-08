@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}Login{% endblock %}
+
+{% block body%}
+<body class="layout-centered bg-img" id="login-bg">
+
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    {% block content %}
+
+    <div class="bg-white rounded shadow-7 w-400 mw-100 p-6">
+      <h5 class="mb-7">Create an account</h5>
+
+      <form method="post">
+        {{ form.non_field_errors }}
+        <div class="form-group">
+          <label>First Name</label>
+          {{ form.first_name|add_class:"form-control"}}
+          {% for error in form.first_name.errors %}
+            <p class="text-danger">{{ error }}</p>
+          {% endfor %}
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          {{ form.last_name|add_class:"form-control"}}
+          {% for error in form.last_name.errors %}
+            <p class="text-danger">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div class="form-group">
+          <label>Email Address</label>
+          {{ form.email|add_class:"form-control"}}
+          {% for error in form.email.errors %}
+            <p class="text-danger">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div class="form-group">
+          <label>Username</label>
+          {{ form.username|add_class:"form-control"}}
+          {% for error in form.username.errors %}
+            <p class="text-danger">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div class="form-group">
+          <label>Password</label>
+          {{ form.password1|add_class:"form-control"}}
+          <!-- {{ form.password1.errors }} -->
+          {% for error in form.password1.errors %}
+            <p class="text-danger">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div class="form-group">
+          <label>Password (Confirm)</label>
+          {{ form.password2|add_class:"form-control"}}
+          {% for error in form.password2.errors %}
+            <p class="text-danger">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-block btn-primary" type="submit">Register</button>
+        </div>
+      </form>
+
+      <div class="divider">Or Register With</div>
+      <div class="text-center">
+        <a class="btn btn-circle btn-sm btn-facebook mr-2" href="#"><i class="fa fa-facebook"></i></a>
+        <a class="btn btn-circle btn-sm btn-google mr-2" href="#"><i class="fa fa-google"></i></a>
+        <a class="btn btn-circle btn-sm btn-twitter" href="#"><i class="fa fa-twitter"></i></a>
+      </div>
+
+      <hr class="w-30">
+
+      <p class="text-center text-muted small-2">Already a member? <a href="{% url 'login' %}">Login here</a></p>
+    </div>
+
+    {% endblock %}
+  </main>
+</body>
+{% endblock %}

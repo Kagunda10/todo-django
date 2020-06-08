@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <title>{% block title %}TODO-APP | {% endblock %}</title>
+
+    <!-- Styles -->
+    <link href="{% static 'css/page.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
+    <link rel="icon" href="{% static 'img/favicon.png' %}">
+  </head>
+
+  {% block body%}
+      {% block content %}
+      {% endblock %}
+
+    <!-- Scripts -->
+    <script src="{% static 'js/page.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+
+  {% endblock %}
+</html>
